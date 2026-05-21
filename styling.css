@@ -10,10 +10,10 @@ body{
     display: flex;
     border: none;
     background-color: #1F2937;
-    padding: 40px;
-    padding-left: 129px;
+    padding: 20px;
+    /*padding-left: 129px;
     padding-right: 120px;
-    padding-top: 0px;
+    padding-top: 0px;*/
     flex-direction: column;
 }
 .Logo img{
@@ -60,7 +60,7 @@ button{
 .images img{
     display: flex;
     height: auto;
-    max-height: 250;
+    max-height: 250px;
     width: 100%;
     max-width: 600px;
     padding: 20px 0;
@@ -103,10 +103,11 @@ h1{
 
 .Information{
     display: flex;
-    padding-right: 200px;
-    padding-left: 200px;
+    /*padding-right: 200px;
+    padding-left: 200px;*/
+    padding: 20px;
     justify-content: space-between;
-    gap: 100px;
+    gap: 30px;
 }
 
 .Types img{
@@ -130,8 +131,8 @@ h2{
     flex-direction: column;
     background-color: #E5E7EB;
     padding: 30px;
-    padding-left: 200px;
-    padding-right: 200px;
+    /*padding-left: 200px;
+    padding-right: 200px;*/
 }
 .Quotes p{
     font-size: 36px;
@@ -195,4 +196,39 @@ h2{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 786px){
+    .header-mid{
+        flex-direction: column;
+    }
+
+    .header{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .Information{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Sign{
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    h1{
+        font-size: 36px;
+    }
+
+    .Quotes p{
+        font-size: 24px;
+    }
+    .Links ul{
+        flex-direction: column;
+        gap: 10px;
+        padding-left: 0px;
+    }
 }
