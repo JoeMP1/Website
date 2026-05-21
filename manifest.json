@@ -1,0 +1,22 @@
+{
+    "name": "A test website",
+    "short_name": "Website",
+    "start_url": "/Website/",
+    "scope": "/Website/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#111827",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "/Website/icons/OpenClipcartVectors.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/Website/icons/700SeriesWiki.jpg",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+}
