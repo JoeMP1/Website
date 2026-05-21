@@ -1,6 +1,7 @@
 {
     "name": "A test website",
     "short_name": "Website",
+    "id": "/Website/",
     "start_url": "/Website/",
     "scope": "/Website/",
     "display": "standalone",
