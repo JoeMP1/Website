@@ -1,6 +1,7 @@
 //Service Worker is important cuz it allows us to use the app OFFLINE
 
-const Cache_name = "website-cache-v1"; //name of the cache storage, can be anything
+const Cache_name = "website-cache-v2"; //name of the cache storage, can be anything, we put v1,v2 so that we can know if the cache updated
+//when the name changes, old cache is deleted automatically and new files are downloaded
 
 const StaticCache = [ //they are files stored offline so that when user opens the app
     "/Website/", // the browser download these and stores them locally
@@ -65,4 +66,11 @@ self.addEventListener("fetch", e =>{//it runs whenever the website request somet
             );
         })
     );
+});
+
+//allows the website to tell sw to update and activate new version now
+self.addEventListener("message", e =>{
+    if (e.data && e.data.type === "SKIP_WAITING"){
+        self.skipWaiting();
+    };
 });
