@@ -3,10 +3,20 @@ if("serviceWorker" in navigator){ //checks if the browser support PWA
         navigator.serviceWorker
         .register("/Website/sw.js") //it tells the browser to use this as a background worker
         .then((registeration) => {
-            console.log("Service Worker is now registered", registeration.scope);
-        })
-        .catch((error) =>{
-            console.log("Service worker is not working", error);
+            registeration.addEventListener("updatefound", () =>{
+                const newSW = registeration.installing;
+
+                newSW.addEventListener("statechange",() => {
+                    if(newSW.state === "installed" && navigator.serviceWorker.controller){
+                        console.log("New version available");
+                    }
+                });
+            });
         });
     });
-};
+}
+
+
+//Note: whenever you/i change the site
+// i/you must update Cache_name on sw.js and
+// push it to Github
