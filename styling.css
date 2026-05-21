@@ -182,3 +182,11 @@ h2{
     padding: 10px;
     background-color: #1F2937;
 }
+
+#installButtn{
+    display: flex;
+    height: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
