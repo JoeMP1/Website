@@ -9,12 +9,12 @@
     "orientation": "portrait-primary",
     "icons": [
       {
-        "src": "/Website/icons/OpenClipcartVectors.png",
+        "src": "/Website/icons/SUBWAY-192x192.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "/Website/icons/700SeriesWiki.jpg",
+        "src": "/Website/icons/SUBWAY-512x512.png",
         "sizes": "512x512",
         "type": "image/png"
       }
