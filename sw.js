@@ -1,6 +1,6 @@
 //Service Worker is important cuz it allows us to use the app OFFLINE
 
-const Cache_name = "website-cache-v3"; //name of the cache storage, can be anything, we put v1,v2 so that we can know if the cache updated
+const Cache_name = "website-cache-v4"; //name of the cache storage, can be anything, we put v1,v2 so that we can know if the cache updated
 //when the name changes, old cache is deleted automatically and new files are downloaded
 
 const StaticCache = [ //they are files stored offline so that when user opens the app
