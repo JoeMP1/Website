@@ -59,10 +59,12 @@ button{
 }
 .images img{
     display: flex;
-    height: 250px;
-    width: 600px;
-    padding: 55px;
-    padding-right: 0px;
+    height: auto;
+    max-height: 250;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px 0;
+    
 }
 
 h1{
