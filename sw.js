@@ -13,52 +13,54 @@ const StaticCache = [ //they are files stored offline so that when user opens th
 ];
 
 
-//this works when Service Worker works for the first time
+//this works when Service Worker works for the first time and work only once
 self.addEventListener("install", e =>{
-    e.waitUntil(
-        caches.open(Cache_name)
+    e.waitUntil( //it tells the browser to dont finish installation until the caching is done
+                //if the caching fails, installation fails
+        caches.open(Cache_name) //opens a storage box, in this case, Cache_name
         .then((cache) => {
-            return cache.addAll(StaticCache);
+            return cache.addAll(StaticCache); //it download all the listed files and stores them offline
         })
     );
-    self.skipWaiting();
+    self.skipWaiting();// it forces the new SW to activate instantly instead of waiting
 });
 
 
-self.addEventListener("activate", e =>{
+self.addEventListener("activate", e =>{ //it starts when Service Worker(SW) becomes active
     e.waitUntil(
-        caches.keys().then((keys) =>{
+        caches.keys().then((keys) =>{ //it gather all the old cdache version
             return Promise.all(
                 keys.map((key) => {
-                    if(key !== Cache_name){
+                    if(key !== Cache_name){ //this if section deletes all the old cache
                         return caches.delete(key)
                     }
                 })
             );
         })
     );
-    self.clients.claim();
+    self.clients.claim();//makes the SW take control of the page instantly
 })
 
-self.addEventListener("fetch", e =>{
+self.addEventListener("fetch", e =>{//it runs whenever the website request something such as html,css,js and image
     const request = e.request;
 
-    if(request.mode === "navigate"){
+    if(request.mode === "navigate"){ //it detects the page navigation
         e.respondWith(
-            fetch(request).catch(() => caches.match("/Website/offline.html"))
+            fetch(request).catch(() => caches.match("/Website/offline.html"))//try the internet first and if it fails, show the offline page
         );
         return;
     }
 
     e.respondWith(
-        caches.match(request).then((cached) =>{
+        caches.match(request).then((cached) =>{ //checks if the file exist in cache
             return(
-                cached || fetch(request).then((response) =>{
-                    const copy = response.clone();
+                cached || fetch(request).then((response) =>{ //if found, return cached and use it immediately
+                                                             //if not found, then fetch(request), and download it from the internet
+                    const copy = response.clone(); //we clone it as response can only be use once
                     caches.open(Cache_name).then((cache) =>{
-                        cache.put(request,copy);
+                        cache.put(request,copy);//storing it for next time
                     });
-                    return response;
+                    return response; //user see the file
                 })
             );
         })
