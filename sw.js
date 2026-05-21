@@ -8,7 +8,8 @@ const StaticCache = [ //they are files stored offline so that when user opens th
     "/Website/styling.css",
     "/Website/manifest.json",
     "/Website/icons/SUBWAY-192x192.png",
-    "/Website/icons/SUBWAY-512x512.png"
+    "/Website/icons/SUBWAY-512x512.png",
+    "/Website/offline.html"
 ];
 
 
